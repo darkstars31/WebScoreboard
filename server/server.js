@@ -28,14 +28,14 @@ console.log('Listening for connections on port ' + port);
 io.on('connection', (socket) => {
   socket.on('scoreboard', (data) => {
     var roomCode = getShortRoomCode();
-    console.log(roomCode);
+    console.log("New Scoreboard Started: " + roomCode);
     socket.join(roomCode, () => {
       socket.emit("roomCode", {roomCode: roomCode})
     });
   });
 
   socket.on('controller', (data) => {
-    console.log('controller data: ', data);
+    console.log('Controller joining room: ', data.roomCode);
     if(io.sockets.adapter.rooms[data.roomCode]){
       socket.join(data.roomCode);
       socket.roomCode = data.roomCode;
