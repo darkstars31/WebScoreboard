@@ -1,0 +1,43 @@
+<!html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Scoreboard Controller</title>
+	<link rel="stylesheet" href="./css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.4.0/balloon.min.css">
+</head>
+
+<body class='container'>
+	<div class='' style="padding: 1em;">
+		<div class="columns is-three-quarter-tablet">
+			<div id='dataout' class="column">
+				<span class='title is-2'>Scoreboard Controller</span>		
+			</div>
+		</div>
+		<div class="container columns">
+				<div class="column">
+					<div class="level-item has-text-centered">Home</div>
+				</div>
+				<div class="column">
+					<div class="level-item has-text-centered">Away</div>
+				</div>		
+			</div>
+		<div class="container columns">
+			<div class="column">
+				<div><a onclick="homeTeamChangeScore(1)" class="button is-large">Up</a></div>
+				<div><a onclick="homeTeamChangeScore(-1)"class="button is-large">Down</a></div>
+			</div>
+			<div class="column">
+				<div><a onclick="awayTeamChangeScore(1)"class="button is-large">Up</a></div>
+				<div><a onclick="awayTeamChangeScore(-1)"class="button is-large">Down</a></div>
+			</div>		
+		</div>
+	</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script src=".\app\configuration.js"></script>
+<script src=".\app\controller.js"></script>
+
+</html>

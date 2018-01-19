@@ -1,0 +1,49 @@
+<!html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Scoreboard</title>
+	<link rel="stylesheet" href="./css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.4.0/balloon.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
+
+<body class='container'>
+	<div class='' style="padding: 1em;">
+		<div class="columns is-three-quarter-tablet">
+			<div class="column">			
+				<div class='level-right'>Room Code: <span id="roomCode">????</span></div>	
+			</div>
+		</div>
+		<div class="container columns">
+				<div class="column">
+					<div class="level-item has-text-centered" style="font-size: 6em;">HOME</div>
+				</div>
+				<div class="column">
+						<div id="clock" class="level-item has-text-centered" style="font-size: 6em;">00:00</div>
+					</div>
+				<div class="column">
+					<div class="level-item has-text-centered" style="font-size: 6em;">AWAY</div>
+				</div>		
+			</div>
+		<div class="container columns">
+			<div class="column">
+				<div id="homeTeamScore" class="level-item has-text-centered" style="font-size: 20em;">0</div>
+			</div>
+			<div class="column has-text-centered" style="font-size: 3em">
+					<div>PERIOD 1</div>
+					<div><-- POSS</div>
+				</div>
+			<div class="column">
+				<div id="awayTeamScore" class="level-item has-text-centered" style="font-size: 20em;">0</div>
+			</div>		
+		</div>
+	</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script src=".\app\configuration.js"></script>
+<script src=".\app\scoreboard.js"></script>
+
+</html>

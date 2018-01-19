@@ -1,0 +1,41 @@
+<!html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SocketChat</title>
+	<link rel="stylesheet" href="./css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.4.0/balloon.min.css">
+</head>
+
+<body class='container'>
+	<div class='' style="padding: 1em;">
+		<div class="columns is-three-quarter-tablet">
+			<div id='dataout' class="column">
+				<span class='title is-2'>Scoreboard</span>		
+			</div>
+		</div>
+		<div>
+			<a href="scoreboard.html">Start a new scoreboard</a> <br />
+			<a href="controller.html">Connect to a scoreboard</a> <br />
+			
+			<form onsubmit='javascript:sendChatMessageToServer()' action="javascript:void(0);">
+				<div class="field has-addons">
+					<div id='input-tooltip' data-balloon-pos="down" style='left: 1.2em;'></div>
+					<!-- <p class="control is-expanded">
+						<input class="input" type="text" placeholder="Message">
+					</p> -->
+					<!-- <p class="control">
+						<button class='button is-primary' onclick='javascript:sendChatMessageToServer();'><i class='fa fa-paper-plane' aria-hidden='true'></i></button>
+					</p>			 -->
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<!-- <script src=".\app\configuration.js"></script> -->
+<!-- <script src=".\app\app.js"></script> -->
+
+</html>
