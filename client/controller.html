@@ -11,26 +11,43 @@
 	<div class='' style="padding: 1em;">
 		<div class="columns is-three-quarter-tablet">
 			<div id='dataout' class="column">
-				<span class='title is-2'>Scoreboard Controller</span>		
+				<span class='title is-3'>Scoreboard Controller</span>		
 			</div>
 		</div>
-		<div class="container columns">
+		<div class="columns is-mobile">
 				<div class="column">
 					<div class="level-item has-text-centered">Home</div>
+					<a onclick="homeTeamChangeScore(2)"class="button is-large">+2</a>
+					<a onclick="homeTeamChangeScore(3)"class="button is-large">+3</a>
+					<a onclick="homeTeamChangeScore(-1)" class="button is-large">-1</a>
+					<a onclick="homeTeamChangeScore(1)"class="button is-large">+1</a>
 				</div>
 				<div class="column">
 					<div class="level-item has-text-centered">Away</div>
+					<a onclick="awayTeamChangeScore(2)"class="button is-large">+2</a>
+					<a onclick="awayTeamChangeScore(3)"class="button is-large">+3</a>
+					<a onclick="awayTeamChangeScore(-1)"class="button is-large">-1</a>
+					<a onclick="awayTeamChangeScore(1)"class="button is-large">+1</a>
 				</div>		
 			</div>
-		<div class="container columns">
-			<div class="column">
-				<div><a onclick="homeTeamChangeScore(1)" class="button is-large">Up</a></div>
-				<div><a onclick="homeTeamChangeScore(-1)"class="button is-large">Down</a></div>
+		</div>
+		<div class="columns is-mobile">
+				<div class="column">
+					<div class="level-item has-text-centered">Timer</div>
+					<a onclick="startClock(true)"class="button is-large">Start</a>
+					<a onclick="startClock(false)"class="button is-large">Stop</a>
+					<a onclick="addTime(60)"class="button is-large">+60 Seconds</a>
+					<a onclick="addTime(30)"class="button is-large">+30 Seconds</a>
+					<a onclick="addTime(-15)" class="button is-large">-15 Seconds</a>
+				</div>	
 			</div>
-			<div class="column">
-				<div><a onclick="awayTeamChangeScore(1)"class="button is-large">Up</a></div>
-				<div><a onclick="awayTeamChangeScore(-1)"class="button is-large">Down</a></div>
-			</div>		
+		</div>
+		<div class="columns is-mobile">
+				<div class="column">
+					<div class="level-item has-text-centered">Possession</div>
+					<a onclick="changePossession()"class="button is-large">Change Possession</a>
+				</div>	
+			</div>
 		</div>
 	</div>
 </body>

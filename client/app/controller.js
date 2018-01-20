@@ -22,6 +22,16 @@ var socket = io(silmarillion.remoteServer +":"+silmarillion.port);
 	}
 
   
+	function addTime(time) {
+		console.log('t');
+		socket.emit('changeTimer', { time: time});
+	}
+
+	function startClock(on) {
+		console.log('c');
+		socket.emit('startClock', { value: on});
+	}
+
   function sendChatMessageToServer () {
 				socket.emit('datain', { 'input' : input.val()});
 				input.val('');

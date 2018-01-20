@@ -50,6 +50,16 @@ io.on('connection', (socket) => {
     socket.to(socket.roomCode).emit(data.team + "TeamScore", { points: data.change});
   });
 
+  socket.on('changeTimer', data => {
+    console.log('changeTime', data);
+    socket.to(socket.roomCode).emit('changeTime', data);
+  });
+
+  socket.on('startClock', data => {
+    console.log('startClock', data);
+    socket.to(socket.roomCode).emit('startClock', { value: data.value});
+  });
+
 	socket.on('disconnect', () => {
       	console.log('Client Disconnected ' + socket.id);
    });
