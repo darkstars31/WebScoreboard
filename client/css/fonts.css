@@ -1,0 +1,19 @@
+body {
+    color: whitesmoke !important;
+    background-color: black;
+}
+
+@font-face {
+    font-family: digital-7;
+    src: url('../fonts/digital-7 (mono).ttf');
+}
+
+.clock {
+    font-family: 'digital-7', Serif; 
+    font-size: 7em;
+}
+
+.score {
+    font-family: 'digital-7', Serif; 
+    font-size: 22em;
+}

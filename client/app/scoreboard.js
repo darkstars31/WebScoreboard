@@ -2,6 +2,8 @@
 
 var socket = io(silmarillion.remoteServer +":"+silmarillion.port);	
 
+var audioBuzzer = new Audio('buzzer.mp3');
+
 	var clockValue = 0;
 	var timer = null;
 	var clientListDOM = $('#clientList'),
@@ -19,7 +21,7 @@ var socket = io(silmarillion.remoteServer +":"+silmarillion.port);
 		roomCodeElement.innerHTML = response.roomCode;
 	});
 
-	socket.on('contorllerConnected', () => { roomCodeElement.hidden = true});
+	socket.on('contorllerConnected', () => { roomCodeElement.parentElement.hidden = true});
 
 	socket.on('homeTeamScore', response => {
 		console.log(response);
@@ -45,18 +47,27 @@ var socket = io(silmarillion.remoteServer +":"+silmarillion.port);
 		}
 	});
 
-
 	function calculateClock() {
+		var style = ""
 		var seconds = clockValue % 60 > 0 ? clockValue % 60 : 00;
 		var minutes = clockValue > 59 ? Math.floor(clockValue / 60) : 00;
-		clock.innerHTML =  minutes.toString().padStart(2, '0') + ":" + seconds.toFixed(0).toString().padStart(2,'0');
+		if(minutes < 1 ){
+			style = "color: red;"
+		} else {
+			style = "";
+		}
+		clock.style = style;
+		clock.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toFixed(0).toString().padStart(2,'0');
 	}
 
 	function clockInterval() {
 		return setInterval(() => {
-			calculateClock();
 			clockValue -= 1;
-			if(clockValue < 0) clearInterval(timer);
+			calculateClock();
+			if(clockValue < 0){
+				clearInterval(timer);
+				audioBuzzer.play();
+			}
 		}, 1000);
 	}
   

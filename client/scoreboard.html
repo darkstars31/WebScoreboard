@@ -3,40 +3,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Scoreboard</title>
 	<link rel="stylesheet" href="./css/font-awesome.min.css" />
+	<link rel="stylesheet" href="./css/fonts.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.4.0/balloon.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 </head>
 
-<body class='container'>
-	<div class='' style="padding: 1em;">
-		<div class="columns is-three-quarter-tablet">
-			<div class="column">			
-				<div class='level-right'>Room Code: <span id="roomCode">????</span></div>	
-			</div>
-		</div>
-		<div class="container columns">
-				<div class="column">
-					<div class="level-item has-text-centered" style="font-size: 6em;">HOME</div>
+<body>
+	<div class='container'>
+		<div class='' style="padding: 1em;">
+			<div class="columns is-three-quarter-tablet">
+				<div class="column">			
+					<div id="roomCodeDiv" class='level-right'><p>Room Code <span id="roomCode">????</span></p></div>	
 				</div>
+			</div>
+			<div class="container columns">
+					<div class="column">
+						<div class="level-item has-text-centered" contentEditable="true" style="font-size: 6em;">HOME</div>
+					</div>
+					<div class="column">
+							<div id="clock" class="level-item has-text-centered clock">00:00</div>
+						</div>
+					<div class="column">
+						<div class="level-item has-text-centered" contentEditable="true" style="font-size: 6em;">AWAY</div>
+					</div>		
+				</div>
+			<div class="container columns">
 				<div class="column">
-						<div id="clock" class="level-item has-text-centered" style="font-size: 6em;">00:00</div>
+					<div id="homeTeamScore" class="has-text-centered score">0</div>
+				</div>
+				<div class="column has-text-centered" style="font-size: 3em">
+						<div>PERIOD <span style="font-family: 'digital-7', Serif;">1</span></div>
+						<div><-- POSS</div>
 					</div>
 				<div class="column">
-					<div class="level-item has-text-centered" style="font-size: 6em;">AWAY</div>
+					<div id="awayTeamScore" class="has-text-centered score">0</div>
 				</div>		
 			</div>
-		<div class="container columns">
-			<div class="column">
-				<div id="homeTeamScore" class="level-item has-text-centered" style="font-size: 20em;">0</div>
-			</div>
-			<div class="column has-text-centered" style="font-size: 3em">
-					<div>PERIOD 1</div>
-					<div><-- POSS</div>
-				</div>
-			<div class="column">
-				<div id="awayTeamScore" class="level-item has-text-centered" style="font-size: 20em;">0</div>
-			</div>		
 		</div>
 	</div>
 </body>
