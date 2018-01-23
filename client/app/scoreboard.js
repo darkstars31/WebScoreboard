@@ -1,6 +1,10 @@
 
 
-var socket = io(silmarillion.remoteServer +":"+silmarillion.port);	
+var socket = io(silmarillion.remoteServer +":"+silmarillion.port, {
+	options: {
+		reconnection : true
+	}
+});	
 
 var audioBuzzer = new Audio('buzzer.mp3');
 
@@ -55,9 +59,9 @@ var audioBuzzer = new Audio('buzzer.mp3');
 	});
 
 	socket.on('changePossession', response => {
-		console.log("changePoss");
-		possession.innerHTML = homePossession ? "<-- POSS" : "POSS -->";
+
 		homePossession = !homePossession
+		possession.innerHTML = homePossession ? "<-- POSS" : "POSS -->";
 	});
 
 	function calculateClock() {

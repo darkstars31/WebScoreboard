@@ -1,4 +1,8 @@
-var socket = io(silmarillion.remoteServer +":"+silmarillion.port);	
+var socket = io(silmarillion.remoteServer +":"+silmarillion.port, {
+	options: {
+		reconnection : true
+	}
+});		
 
 	var isClockOn = false;
 	var clientListDOM = $('#clientList'),
