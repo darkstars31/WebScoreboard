@@ -49,27 +49,44 @@ var audioBuzzer = new Audio('buzzer.mp3');
 
 	function calculateClock() {
 		var style = ""
-		var seconds = clockValue % 60 > 0 ? clockValue % 60 : 00;
+		var milli = (clockValue % 1) * 100;
+		console.log(milli);
+		var seconds = clockValue % 60 > 0 ? Math.floor(clockValue % 60) : 00;
 		var minutes = clockValue > 59 ? Math.floor(clockValue / 60) : 00;
-		if(minutes < 1 ){
-			style = "color: red;"
+		
+		if(minutes < 1 && clockValue > 0){
+			clock.style = "color: red;"
+			clock.innerHTML = seconds.toString().padStart(2, '0') + ":" + milli.toFixed(0).toString().padStart(2,'0');
 		} else {
-			style = "";
+			clock.style = "";
+			clock.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toFixed(0).toString().padStart(2,'0');
 		}
-		clock.style = style;
-		clock.innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toFixed(0).toString().padStart(2,'0');
 	}
 
 	function clockInterval() {
 		return setInterval(() => {
-			clockValue -= 1;
+			clockValue -= .01;
 			calculateClock();
 			if(clockValue < 0){
 				clearInterval(timer);
+				blinkTimer();
 				audioBuzzer.play();
 			}
-		}, 1000);
+		}, 10);
 	}
+
+  function blinkTimer () {
+	  var blinkTimer = setInterval(() => {
+		  if(clock.style.visibility == "hidden"){
+			clock.style.visibility = "visible";
+		  } else {
+			  clock.style.visibility = "hidden"
+		  }
+	  }, 500);
+	  setTimeout(() => {
+		  clearInterval(blinkTimer);
+	  }, 5000)
+  }
   
   function sendChatMessageToServer () {
 				socket.emit('datain', { 'input' : input.val()});
