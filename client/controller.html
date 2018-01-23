@@ -11,7 +11,10 @@
 	<div class='' style="padding: 1em;">
 		<div class="columns is-three-quarter-tablet">
 			<div id='dataout' class="column">
-				<span class='title is-3'>Scoreboard Controller</span>		
+				<span class='title is-3'>Scoreboard Controller</span>	
+				<p class=''>
+
+				</p>	
 			</div>
 		</div>
 		<div class="columns is-mobile">
@@ -34,13 +37,20 @@
 		<div class="columns is-mobile">
 				<div class="column">
 					<div class="level-item has-text-centered">Timer</div>
-					<a onclick="startClock(true)"class="button is-large">Start</a>
-					<a onclick="startClock(false)"class="button is-large">Stop</a>
-					<a onclick="addTime(60)"class="button is-large">+60 Seconds</a>
-					<a onclick="addTime(30)"class="button is-large">+30 Seconds</a>
-					<a onclick="addTime(-15)" class="button is-large">-15 Seconds</a>
+					<a id="timer" onclick="startClock()"class="button is-large">Start</a>
+					<!-- <a onclick="startClock(false)"class="button is-large">Stop</a> -->
+					<a onclick="addTime(60)"class="button is-large">+60</a>
+					<a onclick="addTime(30)"class="button is-large">+30</a>
+					<a onclick="addTime(-15)" class="button is-large">-15</a>
 				</div>	
 			</div>
+		</div>
+		<div class="columns is-mobile">
+			<div class="column">
+				<div class="level-item has-text-centered">Period</div>
+				<a onclick="changePeriod(1)"class="button is-large">+1</a>
+				<a onclick="changePeriod(-1)"class="button is-large">-1</a>
+			</div>	
 		</div>
 		<div class="columns is-mobile">
 				<div class="column">

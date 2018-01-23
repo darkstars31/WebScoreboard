@@ -5,6 +5,7 @@ var socket = io(silmarillion.remoteServer +":"+silmarillion.port);
 var audioBuzzer = new Audio('buzzer.mp3');
 
 	var clockValue = 0;
+	var homePossession = true;
 	var timer = null;
 	var clientListDOM = $('#clientList'),
 		input = $('input:text'),
@@ -12,7 +13,9 @@ var audioBuzzer = new Audio('buzzer.mp3');
 		roomCodeElement = document.getElementById('roomCode'),
 		homeTeamScore = document.getElementById('homeTeamScore'),
 		awayTeamScore = document.getElementById('awayTeamScore'),
-		clock = document.getElementById('clock');
+		clock = document.getElementById('clock'),
+		period = document.getElementById('period'),
+		possession = document.getElementById('poss');
 
 	socket.emit('scoreboard', {});
 
@@ -21,7 +24,7 @@ var audioBuzzer = new Audio('buzzer.mp3');
 		roomCodeElement.innerHTML = response.roomCode;
 	});
 
-	socket.on('contorllerConnected', () => { roomCodeElement.parentElement.hidden = true});
+	socket.on('controllerConnected', () => { roomCodeElement.parentElement.hidden = true});
 
 	socket.on('homeTeamScore', response => {
 		console.log(response);
@@ -47,10 +50,18 @@ var audioBuzzer = new Audio('buzzer.mp3');
 		}
 	});
 
+	socket.on('changePeriod', response => {
+		period.innerHTML = parseInt(period.innerHTML) + response.value;
+	});
+
+	socket.on('changePossession', response => {
+		console.log("changePoss");
+		possession.innerHTML = homePossession ? "<-- POSS" : "POSS -->";
+		homePossession = !homePossession
+	});
+
 	function calculateClock() {
-		var style = ""
 		var milli = (clockValue % 1) * 100;
-		console.log(milli);
 		var seconds = clockValue % 60 > 0 ? Math.floor(clockValue % 60) : 00;
 		var minutes = clockValue > 59 ? Math.floor(clockValue / 60) : 00;
 		

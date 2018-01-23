@@ -60,6 +60,14 @@ io.on('connection', (socket) => {
     socket.to(socket.roomCode).emit('startClock', { value: data.value});
   });
 
+  socket.on('changePeriod', data => {
+    socket.to(socket.roomCode).emit('changePeriod', { value: data.value });
+  });
+
+  socket.on('changePossession', data => {
+    socket.to(socket.roomCode).emit('changePossession', {});
+  });
+
 	socket.on('disconnect', () => {
       	console.log('Client Disconnected ' + socket.id);
    });
