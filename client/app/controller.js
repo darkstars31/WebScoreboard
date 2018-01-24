@@ -2,7 +2,9 @@ var socket = io(silmarillion.remoteServer +":"+silmarillion.port, {
 	options: {
 		reconnection : true
 	}
-});		
+});	
+
+// https://stackoverflow.com/questions/37461495/socket-io-rejoin-rooms-on-reconnect
 
 	var isClockOn = false;
 	var clientListDOM = $('#clientList'),
